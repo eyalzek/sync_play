@@ -1,0 +1,36 @@
+.controls {
+	text-align: center;
+	clear: both;
+}
+
+button {
+	margin-bottom: 8px;
+}
+
+.upperContainer {
+	text-align: center;
+}
+
+/*.videoWrapper {
+	margin: 0 auto;
+}*/
+
+input[type=text] {
+	width: 25%;
+}
+
+input[type=range] {
+	width: 50%;
+}
+
+select {
+	min-width: 250px;
+	margin: 8px;
+}
+
+video {
+	float: left;
+	width: 50%;
+	margin: 0;
+	padding: 0;
+}
