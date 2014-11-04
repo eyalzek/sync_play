@@ -102,7 +102,7 @@ $(document).ready(function() {
         $("video").on("loadedmetadata", function(e) {
             console.log("video duration: ");
             console.log(e.target.duration);
-            if ($("input[type='range']").prop("max") === 0.0) $("input[type='range']").prop("max", e.target.duration);
+            if ($("input[type='range']").prop("max") === "0.0") $("input[type='range']").prop("max", e.target.duration);
             if (e.target.duration < $("input[type='range']").prop("max")) $("input[type='range']").prop("max", e.target.duration);
         });
     })();
