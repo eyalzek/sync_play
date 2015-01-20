@@ -34,20 +34,6 @@ function attachButtonEventListeners(players, GE) {
 
     $('.next').on('click', function(e) {
         console.log('next');
-        var urls = [],
-            baseUrl = 'http://showbox-vs-sanity.s3.amazonaws.com/output/',
-            clip = $('.clip option:selected').next('option').val();
-
-        if (typeof(clip) !== 'undefined') {
-            $('.clip').val(clip);
-            for (var i = 0; i < players.getNumPlayers(); ++i) {
-                var v = $('.v' + i).val();
-                urls.push(baseUrl + v + '/' + clip + '.mp4');
-            }
-            verifyUrls(urls);
-        } else {
-            alert('no more clips!');
-        }
     });
 
     $('.add').on('click', function(e) {
