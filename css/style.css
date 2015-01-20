@@ -1,36 +1,50 @@
-.controls {
-	text-align: center;
-	clear: both;
-}
-
 button {
-	margin-bottom: 8px;
-}
-
-.upperContainer {
-	text-align: center;
-}
-
-/*.videoWrapper {
-	margin: 0 auto;
-}*/
-
-input[type=text] {
-	width: 25%;
+    margin-bottom: 8px;
 }
 
 input[type=range] {
-	width: 50%;
+    width: 50%;
 }
 
-select {
-	min-width: 250px;
-	margin: 8px;
+input[type=text] {
+    width: 500px;
 }
 
 video {
-	float: left;
-	width: 50%;
-	margin: 0;
-	padding: 0;
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    margin-left: 10px;
+}
+
+.videoWrapper {
+    display: none;
+    margin-top: 150px;
+}
+
+.upperContainer {
+    text-align: center;
+}
+
+.controls {
+    display: none;
+    text-align: center;
+    clear: both;
+}
+
+.header {
+    position: fixed;
+    height: 150px;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
+}
+
+.next {
+    display: none;
 }

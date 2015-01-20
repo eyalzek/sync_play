@@ -2,26 +2,29 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Video sync play</title>
+	<title>VS Compositor compare tool</title>
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<!-- <link type="text/css" rel="stylesheet" href="css/bootstrap.css"> -->
 	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 </head>
 <body>
-	<div class="upperContainer">
-		<input id="url1" type="text" placeholder="Enter 1st video url">
-		<input id="url2" type="text" placeholder="Enter 2nd video url">
-		<button class="btn load center-block">load videos</button>
+	<div class="header">
+		<div class="upperContainer">
+			<div id="dd-clip" class="dd-clip"></div>
+			<div id="fields" class="fields text-center"></div>
+			<button class="btn save center-block">save current settings</button>
+			<button class="btn load center-block">load videos</button>
+			<button class="btn add center-block">add player</button>
+			<button class="btn remove center-block">remove player</button>
+		</div>
+		<div class="text-center controls">
+			<!-- <button class="btn next center-block">next</button> -->
+			<input type="button" id="play" value="play" disabled>
+			<input type="range" value="0" id="seek" min="0.0" max="0.0" step="0.03" disabled>
+			<output for="seek" id="duration">00:00</output>
+		</div>
 	</div>
-	<div class="videoWrapper">
-		<video class="col-md-6" id="player1" src="" preload="auto"></video>
-		<video class="col-md-6" id="player2" src="" preload="auto"></video>
-	</div>
-	<div class="text-center controls">
-		<input type="button" id="play" value="play" disabled>
-		<input type="range" value="0" id="seek" min="0.0" max="0.0" step="0.03" disabled>
-		<output for="seek" id="duration">00:00</output>
-	</div>
+	<div class="videoWrapper"></div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="player.js"></script>
 </body>
