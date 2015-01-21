@@ -6,9 +6,7 @@ function init(numPlayers) {
 
         f.appendTo(label);
         label.appendTo('.fields');
-        if (localStorage['f' + i]) {
-            $('.f' + i).val(localStorage['f' + i]);
-        }
+        checkLocalStorage('.f' + i);
     }
 }
 
@@ -44,9 +42,7 @@ function attachButtonEventListeners(players, GE) {
         f.appendTo(label);
         label.appendTo('.fields');
         var className = 'f' + players.getNumPlayers();
-        if (localStorage[className]) {
-            $('.' + className).val(localStorage[className]);
-        }
+        checkLocalStorage('.f' + players.getNumPlayers());
         players.addPlayer();
         attachVideoEventListeners(GE);
         // $('.load').click();
@@ -61,10 +57,12 @@ function attachButtonEventListeners(players, GE) {
 
     $('.save').on('click', function(e) {
         console.log('saving');
-        localStorage.setItem('numPlayers', players.getNumPlayers());
+        var data = {};
+        data['numPlayers'] = players.getNumPlayers();
         $('label input').each(function() {
-            localStorage.setItem($(this).attr('class'), $(this).val());
+            data[$(this).attr('class')] = $(this).val();
         });
+        localStorage.setItem('syncPlay', JSON.stringify(data));
     });
 
     $('#play').on('click', function() {
@@ -145,6 +143,13 @@ function verifyUrls(urls, players) {
         err = err.map(function(x) {return x.split('output/').pop()});
         alert('the following videos do not exist: \n' + err.join('\n'));
     });
+}
+
+function checkLocalStorage(selector) {
+    var data = JSON.parse(localStorage.getItem('syncPlay')) || {};
+    if (data[selector.slice(1)]) {
+        $(selector).val(data[selector.slice(1)]);
+    }
 }
 
 function prettyTime(secs) {
@@ -257,7 +262,7 @@ var Players = function(num) {
 
 
 $(document).ready(function() {
-    var numPlayers = parseInt(localStorage['numPlayers'], 10) || 1,
+    var numPlayers = parseInt((JSON.parse(localStorage['syncPlay'])['numPlayers']), 10) || 1,
         players = new Players(numPlayers),
         GE = $('body');
 
