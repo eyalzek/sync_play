@@ -45,7 +45,7 @@ function attachButtonEventListeners(players, GE) {
         label.appendTo('.fields');
         var className = 'f' + players.getNumPlayers();
         if (localStorage[className]) {
-            $('.f' + className).val(localStorage[className]);
+            $('.' + className).val(localStorage[className]);
         }
         players.addPlayer();
         attachVideoEventListeners(GE);
