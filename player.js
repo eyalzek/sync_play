@@ -262,7 +262,7 @@ var Players = function(num) {
 
 
 $(document).ready(function() {
-    var numPlayers = parseInt((JSON.parse(localStorage['syncPlay'])['numPlayers']), 10) || 1,
+    var numPlayers = parseInt((JSON.parse(localStorage['syncPlay'] || '{}')['numPlayers']), 10) || 1,
         players = new Players(numPlayers),
         GE = $('body');
 
