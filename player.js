@@ -49,10 +49,14 @@ function attachButtonEventListeners(players, GE) {
     });
 
     $('.remove').on('click', function(e) {
-        console.log('removing player');
-        var n = players.getNumPlayers() - 1;
-        $('.f' + n).parent().remove();
-        players.removePlayer();
+        if (players.getNumPlayers() > 2) {
+            console.log('removing player');
+            var n = players.getNumPlayers() - 1;
+            $('.f' + n).parent().remove();
+            players.removePlayer();
+        } else {
+            console.log('reached minimum number of players');
+        }
     });
 
     $('.save').on('click', function(e) {
@@ -262,7 +266,7 @@ var Players = function(num) {
 
 
 $(document).ready(function() {
-    var numPlayers = parseInt((JSON.parse(localStorage['syncPlay'] || '{}')['numPlayers']), 10) || 1,
+    var numPlayers = parseInt((JSON.parse(localStorage['syncPlay'] || '{}')['numPlayers']), 10) || 2,
         players = new Players(numPlayers),
         GE = $('body');
 
