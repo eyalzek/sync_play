@@ -1,1 +1,1 @@
-load your videos and play them in sync, needs some work still
+Enter you video URL's and play them in sync.
